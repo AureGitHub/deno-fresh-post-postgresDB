@@ -1,0 +1,68 @@
+import { Handlers, PageProps } from "$fresh/server.ts";
+
+import { Layout, Link } from "components/index.ts";
+
+// import {models} from "../db/denoDB/db.js"
+
+import {enumUserEstado} from "../constantes/enums.ts"
+
+
+export const handler: Handlers = {
+  async GET(_req, ctx) {
+
+    return ctx.render(ctx.state);
+  },
+};
+
+export default function Home(props: PageProps) {
+  const isAllowed = !!props.data.user;
+  return (
+    <Layout state={props.data}>
+      <img
+        src="/logo.svg"
+        class="w-32 h-32"
+        alt="the fresh logo: a sliced lemon dripping with juice"
+      />
+
+      <h2>Mi app (Aure)</h2>
+
+      <p class="text-lg">text-lg</p>
+      <p class="text-xl">text-xl</p>
+      <p class="normal">text-2xl</p>
+      <p style="font-family: Lucida Console">Texto en cursiva</p>
+
+      <div className="sd:hidden">Aure</div>
+
+      <div class="md:text-center">
+  This text will be centered on medium screens, but revert back
+  to the default (left-aligned) at all other screen sizes.
+</div>
+
+
+      <p>
+        An example app built with Deno's{" "}
+        <Link href="https://fresh.deno.dev/" target="_blank">Fresh</Link>{" "}
+        framework, 
+      </p>
+
+      <div class="my-4">
+        <a
+          href="https://fresh.deno.dev"
+          target="_blank"
+          style={{ display: "block", width: "fit-content" }}
+        >
+          <img
+            width="197"
+            height="37"
+            src="https://fresh.deno.dev/fresh-badge.svg"
+            alt="Made with Fresh"
+          />
+        </a>
+      </div>
+
+      {!isAllowed
+        ? <Link href="/login">Login</Link>
+        : <Link href="/api/sign-out">Sign Out</Link>}
+    </Layout>
+  );
+}
