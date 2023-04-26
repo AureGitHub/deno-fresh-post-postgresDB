@@ -9,7 +9,8 @@ import * as $2 from "./routes/api/sign-up.ts";
 import * as $3 from "./routes/index.tsx";
 import * as $4 from "./routes/login.tsx";
 import * as $5 from "./routes/secret.tsx";
-import * as $6 from "./routes/sign-up.tsx";
+import * as $6 from "./routes/servicios.tsx";
+import * as $7 from "./routes/sign-up.tsx";
 import * as $$0 from "./islands/AuthForm.tsx";
 import * as $$1 from "./islands/Nav.tsx";
 
@@ -21,7 +22,8 @@ const manifest = {
     "./routes/index.tsx": $3,
     "./routes/login.tsx": $4,
     "./routes/secret.tsx": $5,
-    "./routes/sign-up.tsx": $6,
+    "./routes/servicios.tsx": $6,
+    "./routes/sign-up.tsx": $7,
   },
   islands: {
     "./islands/AuthForm.tsx": $$0,

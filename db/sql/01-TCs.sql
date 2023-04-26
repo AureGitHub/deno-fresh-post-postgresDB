@@ -1,25 +1,14 @@
 
-DROP TABLE  IF EXISTS TC_userEstados;
 
-CREATE TABLE TC_userEstados (
-	id INT PRIMARY KEY ,
+DROP TABLE  IF EXISTS TC_tiposGastos;
+
+CREATE TABLE TC_tiposGastos (
+	id smallint PRIMARY KEY,
 	descripcion varchar(255) NULL
 );
 
-insert into TC_userEstados values (1,'activo');
-insert into TC_userEstados values (2,'inactivo');
-insert into TC_userEstados values (3,'bloqueado');
+insert into TC_tiposGastos values (1,'Compra');
+insert into TC_tiposGastos values (2,'Comida Pisos T');
 
 
 
-
-DROP TABLE  IF EXISTS TC_userPerfiles;
-
-CREATE TABLE TC_userPerfiles (
-	id integer PRIMARY KEY,
-	descripcion varchar(255) NULL
-);
-
-insert into TC_userPerfiles values (1,'super');
-insert into TC_userPerfiles values (2,'admin');
-insert into TC_userPerfiles values (3,'normal');

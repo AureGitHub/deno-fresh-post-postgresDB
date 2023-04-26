@@ -24,9 +24,9 @@ export default function AuthForm({ mode, errLogin, user }: Props) {
 
   return (
     <div class="items-stretch min-w-0">
-      <div class="flex justify-center">
+      {/* <div class="flex justify-center">
         <h2 class="my-4">{buttProps.title}</h2>
-      </div>
+      </div> */}
 
       <form method="post" class="flex flex-col space-y-4 min-w-0">
         <Input

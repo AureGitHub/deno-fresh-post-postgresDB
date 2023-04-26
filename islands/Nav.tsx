@@ -14,7 +14,8 @@ type Props = {
 export default function Nav(props: Props) {
   const [navbar, setNavbar] = useState(false);
 
-  const isAllowed = !!props.state.user;
+  console.log('isAllowed : ' + props.state.user?.perfil);
+  const isAllowed = props.state.user?.perfil;
   const isSuper = props.state.user?.perfil == enumUserPrefil.super;
   const isAdmin = props.state.user?.perfil == enumUserPrefil.admin || isSuper;
 
@@ -86,7 +87,7 @@ export default function Nav(props: Props) {
                             {isAllowed && <NavLink href="/secret">Secret</NavLink>}
                             </li>
                             <li className="text-white hover:text-indigo-200">
-                            {isAdmin && <NavLink href="/admin">admin</NavLink> }
+                            {isAdmin && <NavLink href="/servicios">servicios</NavLink> }
                             </li>
                             <li className="text-white hover:text-indigo-200">
                             {isSuper && <NavLink href="/admin">super</NavLink> }

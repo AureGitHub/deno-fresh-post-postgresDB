@@ -31,12 +31,9 @@ export default function Home(props: PageProps) {
       <p class="normal">text-2xl</p>
       <p style="font-family: Lucida Console">Texto en cursiva</p>
 
-      <div className="sd:hidden">Aure</div>
+      <div className="sm:!hidden">Aure</div>
 
-      <div class="md:text-center">
-  This text will be centered on medium screens, but revert back
-  to the default (left-aligned) at all other screen sizes.
-</div>
+
 
 
       <p>

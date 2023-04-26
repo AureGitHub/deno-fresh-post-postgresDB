@@ -57,7 +57,12 @@ export const handler: Handlers = {
 
   },
   GET(req, ctx) {
-    return ctx.render({user: {email: 'aure.desande@gmail.com', password: 'jas11jas11'}});
+    return ctx.render({
+      user: {email: 'aure.desande@gmail.com', password: 'jas11jas11'},
+      title : 'Login'
+    },
+    
+      );
   }
 }
 
@@ -67,13 +72,13 @@ export default function Page(props: PageProps) {
     <Layout state={props.data}>
       <div class="flex justify-center">
         <div class="flex flex-col items-stretch w-[500px] md:w-2/3">
-          <div class="flex justify-center">
+          {/* <div class="flex justify-center">
             <img
               src="/logo.svg"
               class="w-16 h-16 mt-8 mb-4"
               alt="the fresh logo: a sliced lemon dripping with juice"
             />
-          </div>          
+          </div>           */}
           <AuthForm mode="In" errLogin={errLogin} user={props.data?.user} />
           
         </div>
