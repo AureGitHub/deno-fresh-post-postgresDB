@@ -5,7 +5,7 @@ export function NavButton(props: JSX.HTMLAttributes<HTMLAnchorElement>) {
   return (
     <Button
       {...props}
-      class="rounded !border(white 2) text-white hover:bg-primaryLight !hover:border-primaryLight"
+      class="rounded !border(white 2) bg-primary text-white hover:bg-primaryLight !hover:border-primaryLight"
     />
   );
 }

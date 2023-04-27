@@ -42,7 +42,6 @@ export async function seguridad(
     user= payload;
 
   }
-  
 
 
 

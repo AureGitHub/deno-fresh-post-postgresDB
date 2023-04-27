@@ -5,3 +5,4 @@ export { Input } from "components/Input.tsx";
 export { Layout } from "components/Layout.tsx";
 export { Link } from "components/Link.tsx";
 export { NavLink } from "components/NavLink.tsx";
+export { Header } from "components/Header.tsx";
