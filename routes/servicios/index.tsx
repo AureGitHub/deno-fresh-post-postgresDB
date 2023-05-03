@@ -1,7 +1,8 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Layout } from "components/index.ts";
-import sql from "../db/db.js";
-
+import sql from "../../db/db.js";
+import CheckBoolean from "../../islands/CheckBoolean.tsx";
+import IconSquarePlus  from "icons/square-plus.tsx";
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
@@ -10,9 +11,9 @@ export const handler: Handlers = {
 
 
     const datos = await sql`
-    select to_char(fecha,'DD/MM/YYYY') fecha , substring(tt.descripcion from 0 for 4) serv, te.nombre emple, horas , 
-    case when suplementolevantar = TRUE then 'X' else '' end as suple,
-    case when pagado = TRUE then 'X' else '' end as pagado
+    select ts.id,to_char(fecha,'DD/MM/YYYY') fecha , substring(tt.descripcion from 0 for 4) serv, te.nombre emple, horas , 
+    suplementolevantar,
+     pagado
     from t_servicios ts
     left join tc_tiposservicios tt on ts.fk_tiposervicio =tt.id 
     left join t_empleadas te on ts.fk_empleada = te.id 
@@ -31,14 +32,16 @@ export const handler: Handlers = {
   }
 }
 
-export default function Secret(props: PageProps) {
-  console.log(props.data);
+export default function Servicios(props: PageProps) {
 	return (
     <Layout state={props.data.state}>
+
+  <a href="/servicios/0"><IconSquarePlus /></a>
+
        <table class="table table-sm">
   <thead>
    <tr>
-      <th scope="col">Día</th>
+      <th scope="col">Dia</th>
       <th scope="col">Tipo</th>
       <th scope="col">Empl.</th>
       <th scope="col">Horas</th>
@@ -50,14 +53,18 @@ export default function Secret(props: PageProps) {
 
   {
     props.data.datos.map((servicio) => {
+
+      const href =`/servicios/${servicio.id}`;
+
       return (
         <tr>
-            <td>{servicio.fecha}</td>
+            <td>{<a href={href}>{servicio.fecha}</a>}</td>
             <td>{servicio.serv}</td>
             <td>{servicio.emple}</td>
             <td>{servicio.horas}</td>
             <td>{servicio.suple}</td>
-            <td>{servicio.pagado}</td>
+            <td>  <CheckBoolean tabla='t_servicios' columToChange='suplementolevantar' id={servicio.id}  valorBoolean={servicio.suplementolevantar} /> </td>
+            <td>  <CheckBoolean tabla='t_servicios' columToChange='pagado' id={servicio.id}  valorBoolean={servicio.pagado} /> </td>
         </tr>
       )
       
