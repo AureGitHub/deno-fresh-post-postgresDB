@@ -21,22 +21,23 @@ export  function Header(props: Props) {
     const colorButtonMenu =  isAllowed ? 'bg-green-200' : 'bg-gray-300';
 
     return (
+
+
+        
         <header className="container navbar navbar-expand-lg w-full  bg-gray-100">
             <div className="container-fluid">
                 <a className="navbar-brand text-primary" href="/">{ Deno.env.get('TITULO') }</a>
                
-               {isAllowed && <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               {<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className={`navbar-toggler-icon ${colorButtonMenu}`}></span>
                 </button>                
                 }
-               {!isAllowed && <a href="/login"><IconLogin  className="text-green-800" /></a> }
-                
               
+                
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-
 
 
                         {isAllowed &&  <li className="nav-item">
@@ -48,16 +49,15 @@ export  function Header(props: Props) {
                             </li>}
 
 
-
-
-
+                            {!isAllowed && 
+                            <li className="text-white hover:text-indigo-200">
+                            <a href="/login"><IconLogin  className="text-green-800" /></a> 
+                            </li>
+                            }
+                        {isAllowed && <a href="/api/sign-out"><IconLogout  className="text-red-800" /> Logout</a> }
 
                     </ul>
 
-                    <div  className="justify-content-end">
-                        
-                        {isAllowed && <a href="/api/sign-out"><IconLogout  className="text-red-800" /></a> }
-                    </div>
 
                 </div>
 

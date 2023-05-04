@@ -62,7 +62,6 @@ export default function Servicios(props: PageProps) {
             <td>{servicio.serv}</td>
             <td>{servicio.emple}</td>
             <td>{servicio.horas}</td>
-            <td>{servicio.suple}</td>
             <td>  <CheckBoolean tabla='t_servicios' columToChange='suplementolevantar' id={servicio.id}  valorBoolean={servicio.suplementolevantar} /> </td>
             <td>  <CheckBoolean tabla='t_servicios' columToChange='pagado' id={servicio.id}  valorBoolean={servicio.pagado} /> </td>
         </tr>
